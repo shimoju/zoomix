@@ -1,10 +1,12 @@
+ruby '2.1.2'
+source 'https://rails-assets.org'
 source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', group: [:development, :test]
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -38,3 +40,50 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+
+gem 'foreman'
+gem 'puma'
+gem 'slim-rails'
+gem 'devise'
+gem 'devise-i18n'
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_rewinder'
+  gem 'launchy'
+  gem 'faker'
+  gem 'simplecov', require: false
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'dotenv-rails'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-coolline'
+  gem 'pry-doc'
+  gem 'pry-stack_explorer'
+  gem 'hirb-unicode'
+  gem 'awesome_print'
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'annotate'
+  gem 'quiet_assets'
+  gem 'spring-commands-rspec'
+  gem 'i18n_generators'
+  gem 'guard'
+  gem 'terminal-notifier-guard'
+  gem 'guard-livereload', require: false
+  gem 'guard-pow', require: false
+  gem 'guard-rspec', require: false
+  gem 'html2slim', require: false
+end

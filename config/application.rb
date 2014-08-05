@@ -15,6 +15,16 @@ Bundler.require(*Rails.groups)
 
 module Zoomix
   class Application < Rails::Application
+    # Config Generators
+    config.generators do |g|
+      g.test_framework :rspec,
+        # controller_specs: false,
+        # helper_specs: false,
+        request_specs: false,
+        routing_specs: false,
+        view_specs: false
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
